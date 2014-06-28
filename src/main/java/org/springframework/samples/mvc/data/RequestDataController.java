@@ -1,5 +1,8 @@
 package org.springframework.samples.mvc.data;
 
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -11,12 +14,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.paypal.dt.hackathon.model.CustSentiment;
+import com.paypal.dt.hackathon.repos.CustSentimentRepo;
+
 @Controller
 @RequestMapping("/data/*")
 public class RequestDataController {
+	
+	@Autowired
+	private CustSentimentRepo custSentimentRepo;
+	
+//	private static void createEmployee(String emailId, String type,
+//			String isPositiveFlag, String merchantId, String prodId, Date date) {
+//
+//		CustSentiment emp = new CustSentiment(emailId, type, isPositiveFlag,
+//				merchantId, prodId, date);
+//		repository.save(emp);
+//	}
 
 	@RequestMapping(value="param")
 	public @ResponseBody String withParam(@RequestParam String foo) {
+		CustSentiment emp = new CustSentiment("sa@google.com", "twitter", "Y", "Sylvana", "Laptop",
+				new Date());
+		custSentimentRepo.save(emp);
 		return "Obtained 'foo' query parameter value '" + foo + "'";
 	}
 

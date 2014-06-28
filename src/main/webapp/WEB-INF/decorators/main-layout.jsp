@@ -38,8 +38,8 @@
 
 				<div class="col-md-12">
 					<div class="jumbotron">
-						<%-- <c:import url="/WEB-INF/views/tags/banner.jsp" /> --%>
-						<img class="img-rounded" src="<c:url value="/resources/img/Data_beat.png" />">
+						<c:import url="/WEB-INF/views/tags/banner.jsp" />
+						<%-- <img class="img-rounded" src="<c:url value="/resources/img/Data_beat.png" />"> --%>
 					</div>
 
 					<div class="row">
